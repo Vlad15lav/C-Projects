@@ -162,6 +162,7 @@ template <typename T> Matrix<T>::Matrix(int n, int m)
 	for (int i = 0; i < n; i++)
 		matrix[i] = new T[m];
 }
+
 template <typename T> Matrix<T>::Matrix(const Matrix<T> &mat)
 {
 	n = mat.n;
@@ -173,12 +174,14 @@ template <typename T> Matrix<T>::Matrix(const Matrix<T> &mat)
 		for (int j = 0; j < m; j++)
 			matrix[i][j] = mat.matrix[i][j];
 }
+
 template <typename T> Matrix<T>::~Matrix()
 {
 	for (int i = 0; i < n; i++)
 		delete matrix[i];
 	delete matrix;
 }
+
 template <typename T> Matrix<T> Matrix<T>::operator+(Matrix<T> mat)
 {
 	if (n != mat.n || m != mat.m)
@@ -191,6 +194,7 @@ template <typename T> Matrix<T> Matrix<T>::operator+(Matrix<T> mat)
 			res.matrix[i][j] = matrix[i][j] + mat.matrix[i][j];
 	return res;
 }
+
 template <typename T> Matrix<T> Matrix<T>::operator-(Matrix<T> mat)
 {
 	if (n != mat.n || m != mat.m)
@@ -203,6 +207,7 @@ template <typename T> Matrix<T> Matrix<T>::operator-(Matrix<T> mat)
 			res.matrix[i][j] = matrix[i][j] - mat.matrix[i][j];
 	return res;
 }
+
 template <typename T> Matrix<T> Matrix<T>::operator*(Matrix<T> mat)
 {
 	if (n != mat.n || m != mat.m)
@@ -219,6 +224,7 @@ template <typename T> Matrix<T> Matrix<T>::operator*(Matrix<T> mat)
 		}
 	return res;
 }
+
 template <typename T> Matrix<T> Matrix<T>::operator *(int a)
 {
 	Matrix<T> res;
@@ -232,6 +238,7 @@ template <typename T> Matrix<T> Matrix<T>::operator *(int a)
 			res.matrix[i][j] = matrix[i][j] * a;
 	return res;
 }
+
 template <typename T> Matrix<T> Matrix<T>::operator /(int a)
 {
 	if (a == 0)
@@ -247,12 +254,14 @@ template <typename T> Matrix<T> Matrix<T>::operator /(int a)
 			res.matrix[i][j] = matrix[i][j] / a;
 	return res;
 }
+
 template <typename T> T& Matrix<T>::operator[](int a)
 {
 	if (a < 0 && a >= n)
 		throw 1;
 	return matrix[a];
 }
+
 template <typename T> Matrix<T>& Matrix<T>::operator = (const Matrix<T>& mat)
 {
 	if (n != mat.n || m != mat.m)
