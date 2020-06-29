@@ -20,7 +20,7 @@ public:
 	Data(int, int, int);
 	~Data();
 
-	// Заполнить массив (Равномерное распределение X ~ U(a, b))
+	// Заполнить массив 
 	void Uniform(int, int);
 	// Печать массива
 	void Print();
