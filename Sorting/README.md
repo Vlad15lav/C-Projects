@@ -1,4 +1,4 @@
-# Sorting algorithm
+# Sorting algorithms
 # List
 1. Bubble Srting
 2. Shell Sorting
